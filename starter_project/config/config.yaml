@@ -1,0 +1,40 @@
+# ============================================================
+# Project config. Non-secret settings live here.
+# Secrets (passwords, API keys) go in .env and are referenced
+# with ${ENV_VAR_NAME} so they never get committed to git.
+# ============================================================
+
+db:
+  type: sqlserver          # sqlserver | postgres | mysql
+  server: ${DB_SERVER}
+  database: ${DB_NAME}
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
+  driver: "ODBC Driver 17 for SQL Server"
+  trusted_connection: false
+
+staging_tables:
+  example_table: stg_example_table
+
+main_tables:
+  example_table: example_table
+
+api:
+  example_source:
+    base_url: "https://api.example.com/v1"
+    api_key: ${EXAMPLE_API_KEY}
+    timeout_sec: 30
+
+dq:
+  min_rows: 1
+  max_row_count_drift_pct: 20
+
+notifications:
+  slack_webhook: ${SLACK_WEBHOOK_URL}
+  # email:
+  #   host: smtp.office365.com
+  #   port: 587
+  #   username: ${SMTP_USER}
+  #   password: ${SMTP_PASSWORD}
+  #   from_addr: etl-alerts@yourcompany.com
+  #   to_addrs: ["team@yourcompany.com"]

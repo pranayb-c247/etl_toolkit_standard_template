@@ -1,0 +1,4 @@
+# Install etl_toolkit itself first (from the framework repo):
+#   pip install -e ../etl_toolkit         (local dev)
+#   pip install etl_toolkit                (once published to an internal index)
+etl_toolkit
